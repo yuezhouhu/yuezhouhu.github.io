@@ -12,7 +12,7 @@ title                    : "Yuezhou Hu (胡越舟)"
 title_separator          : "-"
 #name                     : &name "Your Name"
 #description              : &description "personal description"
-url                      : https://huyz2023.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://yuezhouhu.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 #baseurl                  : "" # the subpath of your site, e.g. "/blog"
 #repository               : "academicpages/academicpages.github.io"
 
@@ -43,7 +43,7 @@ author:
 #  bitbucket        : # Username - Update with your username on the site
 #  codepen          : # Username
 #  dribbble         : # Username
-  github           : "huyz2023"
+  github           : "yuezhouhu"
 #  kaggle           : # Username
 #  stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")
 
