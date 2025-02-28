@@ -23,4 +23,8 @@ author_profile: true
 
   AAAI Conference on Artificial Intelligence, 2025
   
-[//]: # (# Working Papers)
+# Working Papers
+
+- **Identifying Sensitive Weights via Post-quantization Integral**
+
+  **Yuezhou Hu**, Weiyu Huang, Zichen Liang, Chang Chen, Jintao Zhang, Jun Zhu, Jianfei Chen
