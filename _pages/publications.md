@@ -25,6 +25,6 @@ author_profile: true
   
 # Working Papers
 
-- **Identifying Sensitive Weights via Post-quantization Integral**
+- **Identifying Sensitive Weights via Post-quantization Integral** [[arXiv]](https://arxiv.org/abs/2503.01901)
 
   **Yuezhou Hu**, Weiyu Huang, Zichen Liang, Chang Chen, Jintao Zhang, Jun Zhu, Jianfei Chen
