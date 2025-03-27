@@ -65,13 +65,13 @@ author:
 #  steam            : # Username
 #  telegram         : # URL
 #  tumblr           : # Username
-  twitter          : "yuezhouhu"
+#  twitter          : # Username for X / Twitter
 #  vine             : # Username
 #  weibo            : # Username
 #  wikipedia        : # Username
 #  xing             : # Username
 #  youtube          : # Username
-#  zhihu            : # URL
+  zhihu            : https://www.zhihu.com/people/fleo-58
 
 
 # Site Settings
