@@ -13,3 +13,5 @@ redirect_from:
 # Research Interests
 
 My research interests include **efficient machine learning**, particularly efficient training and inference. Recently, I am focusing on dynamic sparse training, quantization and speculative decoding. I want to break the monopoly of unicorns in AI and make deep learning affordable and accessible for every researcher.
+
+Feel free to contact me via email or ask me any questions at my [Askbox](https://box.n3ko.cc/_/2by4).
