@@ -9,7 +9,7 @@ author_profile: true
 
   **Yuezhou Hu**\*, Jiaxin Guo\*, Xinyu Feng, Tuo Zhao
 
-  Neural Information Processing Systems (NeurIPS), 2025
+  Neural Information Processing Systems (NeurIPS), 2025 (Spotlight)
 
 - **Accelerating Transformer Pre-training with 2:4 Sparsity** [[arXiv]](https://arxiv.org/abs/2404.01847) [[OpenReview]](https://openreview.net/forum?id=kTaX87Zn6M) [[PDF]](https://proceedings.mlr.press/v235/hu24r.html) [[Project page]](https://github.com/huyz2023/2by4-pretrain)
 
