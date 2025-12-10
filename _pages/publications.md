@@ -47,3 +47,6 @@ author_profile: true
 
   Wonjun Kang, Kevin Galim, Seunghyuk Oh, Minjae Lee, Yuchen Zeng, Shuibai Zhang, Coleman Hooper, **Yuezhou Hu**, Hyung Il Koo, Nam Ik Cho, Kangwook Lee
 
+- **Arbitrage: Efficient Reasoning via Advantage-Aware Speculation** [[arXiv]](https://arxiv.org/abs/2512.05033) [[Project page]](https://github.com/SqueezeAILab/Arbitrage)
+
+  Monishwaran Maheswaran\*, Rishabh Tiwari\*, **Yuezhou Hu**\*, Kerem Dilmen, Coleman Hooper, Haocheng Xi, Nicholas Lee, Mehrdad Farajtabar, Michael Mahoney, Kurt Keutzer, Amir Gholami
