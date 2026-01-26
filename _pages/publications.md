@@ -5,7 +5,7 @@ permalink: /publications/
 author_profile: true
 ---
 
-- **AdaSPEC: Selective Knowledge Distillation for Efficient Speculative Decoders** [[arXiv]](https://arxiv.org/abs/2510.19779) [[OpenReview]](https://openreview.net/forum?id=zNLlglSOwD)
+- **AdaSPEC: Selective Knowledge Distillation for Efficient Speculative Decoders** [[arXiv]](https://arxiv.org/abs/2510.19779) [[OpenReview]](https://openreview.net/forum?id=zNLlglSOwD) [[Project page]](https://github.com/yuezhouhu/adaspec)
 
   **Yuezhou Hu**\*, Jiaxin Guo\*, Xinyu Feng, Tuo Zhao
 
