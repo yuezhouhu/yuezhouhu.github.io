@@ -5,6 +5,12 @@ permalink: /publications/
 author_profile: true
 ---
 
+- **ParallelBench: Understanding the Trade-offs of Parallel Decoding in Diffusion LLMs** [[arXiv]](https://arxiv.org/abs/2510.04767) 
+
+  Wonjun Kang, Kevin Galim, Seunghyuk Oh, Minjae Lee, Yuchen Zeng, Shuibai Zhang, Coleman Hooper, **Yuezhou Hu**, Hyung Il Koo, Nam Ik Cho, Kangwook Lee
+
+  International Conference on Learning Representations (ICLR), 2026
+
 - **AdaSPEC: Selective Knowledge Distillation for Efficient Speculative Decoders** [[arXiv]](https://arxiv.org/abs/2510.19779) [[OpenReview]](https://openreview.net/forum?id=zNLlglSOwD) [[Project page]](https://github.com/yuezhouhu/adaspec)
 
   **Yuezhou Hu**\*, Jiaxin Guo\*, Xinyu Feng, Tuo Zhao
@@ -34,10 +40,6 @@ author_profile: true
 - **Arbitrage: Efficient Reasoning via Advantage-Aware Speculation** [[arXiv]](https://arxiv.org/abs/2512.05033) [[Project page]](https://github.com/SqueezeAILab/Arbitrage)
 
   Monishwaran Maheswaran\*, Rishabh Tiwari\*, **Yuezhou Hu**\*, Kerem Dilmen, Coleman Hooper, Haocheng Xi, Nicholas Lee, Mehrdad Farajtabar, Michael Mahoney, Kurt Keutzer, Amir Gholami
-
-- **ParallelBench: Understanding the Trade-offs of Parallel Decoding in Diffusion LLMs** [[arXiv]](https://arxiv.org/abs/2510.04767) 
-
-  Wonjun Kang, Kevin Galim, Seunghyuk Oh, Minjae Lee, Yuchen Zeng, Shuibai Zhang, Coleman Hooper, **Yuezhou Hu**, Hyung Il Koo, Nam Ik Cho, Kangwook Lee
 
 - **A Survey of Efficient Attention Methods: Hardware-efficient, Sparse, Compact, and Linear Attention**
 
