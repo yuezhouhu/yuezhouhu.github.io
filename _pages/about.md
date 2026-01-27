@@ -17,4 +17,8 @@ My research interests include **efficient machine learning**, particularly effic
 am focusing on dynamic sparse training, quantization and speculative decoding. I want to break the monopoly of unicorns
 in AI and make deep learning affordable and accessible for every researcher.
 
-Feel free to contact me via email or ask me any questions at my [Askbox](https://box.n3ko.cc/_/2by4).
+# Contact
+
+I receive too many emails, and I often dropout with p=0.5. Sending your email to all these addresses: yuezhouhu@berkeley.edu, yuezhouhu@outlook.com, and yuezhouhu.cs@gmail.com, especially if you are interested in my research.
+
+Alternatively, feel free to ask me any questions at my [Askbox](https://box.n3ko.cc/_/2by4). This is an anonymous question and answer box that I will check often.
