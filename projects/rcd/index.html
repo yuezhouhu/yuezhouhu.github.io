@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Residual Context Diffusion (RCD) Project Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #202124;
+            --accent-color: #1a73e8;
+            --bg-color: #ffffff;
+            --sec-bg-color: #f8f9fa;
+        }
+        body {
+            font-family: 'Google Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--primary-color);
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 0 30px 0;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .authors {
+            font-size: 1.1rem;
+            color: #5f6368;
+            margin-bottom: 20px;
+        }
+        .links {
+            margin-top: 20px;
+        }
+        .links a {
+            text-decoration: none;
+            color: white;
+            background: var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin: 0 5px;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+        .links a:hover {
+            background: var(--accent-color);
+        }
+
+        /* Figures */
+        .figure-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .figure-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .caption {
+            font-size: 0.9rem;
+            color: #70757a;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 50px;
+        }
+        h2 {
+            border-bottom: 1px solid #dadce0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .highlight {
+            background-color: #e8f0fe;
+            padding: 20px;
+            border-left: 5px solid var(--accent-color);
+            border-radius: 4px;
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #dadce0;
+        }
+        th {
+            background-color: var(--sec-bg-color);
+        }
+        .rcd-row {
+            background-color: rgba(26, 115, 232, 0.1);
+            font-weight: 500;
+        }
+
+        /* Bibtex */
+        pre {
+            background: var(--sec-bg-color);
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            overflow-x: auto;
+        }
+
+        .authors {
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .authors a {
+            color: #1a73e8; /* 链接颜色 */
+            text-decoration: none;
+        }
+
+        .authors a:hover {
+            text-decoration: underline;
+        }
+
+        .author-block {
+            display: inline-block; /* 保证在小屏幕上名字不会被切断 */
+            white-space: nowrap;
+        }
+
+        .affiliations, .notes {
+            text-align: center;
+            font-size: 1rem;
+            color: #5f6368;
+            margin-top: 5px;
+        }
+
+        .notes {
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        /* Method Section Styles */
+        .method-figure-wrapper {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .method-main-img {
+            width: 100%;
+            max-width: 1100px;
+            height: auto;
+            /* 去掉之前的 box-shadow，如果 pdf 转换后背景是透明的 */
+            border-radius: 4px;
+        }
+
+        .method-explanation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 25px;
+            text-align: left;
+        }
+
+        .exp-column {
+            padding: 15px;
+            border-top: 2px solid #eee;
+        }
+
+        .exp-column h4 {
+            margin: 10px 0;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .exp-column p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Badge tags for Left/Center/Right */
+        .badge {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .badge-gray { background: #f0f0f0; color: #666; }
+        .badge-blue { background: #e6f7ff; color: #1890ff; }
+        .badge-green { background: #f6ffed; color: #52c41a; }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .method-explanation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .results-main-container {
+            display: flex;
+            flex-direction: column; /* 默认纵向，对于这种宽图更好看 */
+            align-items: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .responsive-img {
+            width: 100%;
+            max-width: 1000px; /* 帕累托图通常较宽，给大一点的展示空间 */
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .results-analysis {
+            max-width: 900px;
+            background: #fdfdfd;
+            padding: 25px;
+            border: 1px solid #efefef;
+            border-radius: 12px;
+        }
+
+        .figure-description {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            border-left: 4px solid #ddd;
+            padding-left: 15px;
+        }
+
+        .key-takeaways {
+            list-style: none;
+            padding: 0;
+        }
+
+        .key-takeaways li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1.05rem;
+        }
+
+        .key-takeaways li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: #1a73e8;
+        }
+
+        .highlight-green { color: #2e7d32; font-weight: 600; }
+        .highlight-blue { color: #1565c0; font-weight: 600; }
+        .highlight-orange { color: #e65100; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Residual Context Diffusion</h1>
+        <h3>Unleashing the Potential of Diffusion LLMs via Residual Denoising</h3>
+        <div class="authors">
+            <span class="author-block">
+                <a href="https://yuezhouhu.github.io">Yuezhou Hu</a><sup>*1</sup>,
+                <a href="https://harmandotpy.github.io">Harman Singh</a><sup>*1</sup>,
+                <a href="https://www.monishwaran.com">Monishwaran Maheswaran</a><sup>*1</sup>
+            </span><br>
+
+            <span class="author-block">
+                <a href="https://haochengxi.github.io">Haocheng Xi</a><sup>1</sup>,
+                <a href="https://colemanhooper.org">Coleman Hooper</a><sup>1</sup>,
+                <a href="https://jt-zhang.github.io">Jintao Zhang</a><sup>1</sup>,
+                <a href="https://www.adityatomar.org">Aditya Tomar</a><sup>1</sup>
+            </span><br>
+
+            <span class="author-block">
+                <a href="https://www.stat.berkeley.edu/~mmahoney/">Michael W. Mahoney</a><sup>1</sup>,
+                <a href="https://www.sewonmin.com">Sewon Min</a><sup>1</sup>,
+                <a href="https://sites.google.com/view/mehrdad">Mehrdad Farajtabar</a><sup>2</sup>
+            </span><br>
+
+            <span class="author-block">
+                <a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/keutzer.html">Kurt Keutzer</a><sup>1</sup>,
+                <a href="http://amirgholami.org">Amir Gholami</a><sup>†1</sup>,
+                <a href="https://www.chenfengx.com">Chenfeng Xu</a><sup>†1</sup>
+            </span>
+        </div>
+
+        <div class="affiliations">
+            <p><sup>1</sup>University of California, Berkeley &nbsp;&nbsp; <sup>2</sup>Apple</p>
+        </div>
+
+        <div class="notes">
+            <p><sup>*</sup>Equal contribution &nbsp;&nbsp; <sup>†</sup>Joint advisement / Corresponding author</p>
+        </div>
+        <div class="links">
+            <a href="#">PDF (Paper)</a>
+            <a href="#">Code (GitHub)</a>
+            <a href="#">arXiv</a>
+        </div>
+    </header>
+
+    <section class="figure-container">
+        <img src="main_figure_1_0126.pdf" alt="RCD Framework" style="width: 50%; max-width: 900px; height: auto; border-radius: 8px; box-shadow: none;">
+        <p class="caption">
+            <strong>Figure 1:</strong> Overview of the residual denoising mechanism in Residual Context Diffusion (RCD). Remasking happens during each denoising step, discarding low-confidence token even though they are already explicitly computed. To recycle computation from previous steps, our proposed method
+  extracts information before it is discarded, and forwards it to the next denoising step.
+        </p>
+    </section>
+
+    <section id="abstract">
+        <h2>About RCD</h2>
+        <p>
+            Diffusion Large Language Models (dLLMs) offer parallel decoding benefits but often trail autoregressive models in accuracy.
+            This is due to the "remasking" strategy which wastes intermediate computation on tokens that remain undecoded.
+            We propose <strong>Residual Context Diffusion (RCD)</strong>, a novel paradigm that transforms this wasted computation into
+            a guiding signal. By treating latent representations of low-confidence tokens as residual updates, RCD allows models to
+            progressively refine their knowledge. Our method achieves 5-10% gains on GSM8K/MATH500 and <strong>doubles accuracy</strong>
+            on competition-level AIME benchmarks while requiring up to 5x fewer steps.
+        </p>
+    </section>
+
+    <section id="motivation">
+        <h2>Why Residual Context Diffusion?</h2>
+        <div class="motivation-container">
+            <div class="motivation-content">
+                <p>
+                    Diffusion LLMs (dLLMs) achieve high efficiency through parallel decoding, yet they consistently struggle to match the accuracy of Autoregressive (AR) models.
+                    While this gap is partly rooted in the inherent challenges of training dLLMs, it is further exacerbated by the inference-time <b>"Remasking"</b> strategy:
+                </p>
+
+                <div class="problem-solution-grid">
+                    <div class="box problem">
+                        <h4>The Problem: Information Loss</h4>
+                        <p>
+                            In each denoising step, standard dLLMs discard all tokens that fall below a confidence threshold, resetting them back to [MASK].
+                            This <b>wastes the intermediate computation</b> spent on low-confidence tokens, forcing the model to "start from scratch" at those positions in the next step.
+                        </p>
+                    </div>
+
+                    <div class="box solution">
+                        <h4>The RCD Solution: Residual Recycling</h4>
+                        <p>
+                            Instead of discarding uncertain tokens, RCD treats them as <b>Residual Context</b>.
+                            By aggregating these "soft tokens" based on their <b>Entropy</b>, we transmit a continuous, semantically-rich signal to the next iteration, enabling the model to refine its "thinking" rather than re-guessing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="method">
+        <h2>The RCD Method</h2>
+
+        <div class="method-figure-wrapper">
+                    <img src="train_infer_0126.pdf" alt="RCD Training and Inference Pipeline" class="method-main-img">
+
+                    <div class="method-explanation-grid">
+                        <div class="exp-column">
+                            <span class="badge badge-gray">Left</span>
+                            <h4>Vanilla dLLM</h4>
+                            <p>Tokens not selected are reverted to static mask embeddings, <b>discarding</b> rich probability information.</p>
+                        </div>
+                        <div class="exp-column">
+                            <span class="badge badge-blue">Center</span>
+                            <h4>RCD Inference</h4>
+                            <p>Calculates a weighted sum of unselected distributions (residuals) to <b>refine</b> ambiguous tokens over time.</p>
+                        </div>
+                        <div class="exp-column">
+                            <span class="badge badge-green">Right</span>
+                            <h4>RCD Training</h4>
+                            <p>A <b>Decoupled Strategy</b>: A frozen Reference Model provides stable targets to train the Target Model's residual awareness.</p>
+                        </div>
+                    </div>
+                </div>
+        <p>
+            RCD introduces an <strong>Entropy-Based Embedding Aggregation</strong> mechanism. Instead of discarding uncertain tokens,
+            we calculate their normalized Shannon entropy to determine their contribution to the next step's input.
+        </p>
+        <div class="highlight">
+            <ul>
+                <li><strong>Residual Injection:</strong> Integrates soft-token information into masked positions.</li>
+                <li><strong>Two-Stage Training:</strong> Uses a lightweight <em>Reference Model</em> to provide stable proxy signals, overcoming the instability of recursive loops.</li>
+                <li><strong>Self-Correction:</strong> Temperature-scaled entropy alignment during inference to match training statistics.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <section id="results">
+        <h2>Experimental Results</h2>
+
+        <section id="efficiency-results">
+            <h2>Accuracy vs. Efficiency Trade-offs</h2>
+
+            <div class="results-main-container">
+                <div class="pareto-chart">
+                    <img src="sdar_accuracy_vs_tokens_per_step_academic.png" alt="Pareto Frontier: Accuracy vs Tokens per Step" class="responsive-img">
+                </div>
+
+                <div class="results-analysis">
+                    <p class="figure-description">
+                        <strong>Pareto frontiers for SDAR models:</strong> Curves are generated by sweeping confidence thresholds from 0.5 to 1.0.
+                        <i>Token per Step</i> measures the average number of tokens generated in each parallel iteration; higher values indicate fewer total decoding steps.
+                    </p>
+                    <ul class="key-takeaways">
+                        <li><span class="highlight-green">Significant Speedup:</span> <strong>RCD (green dashed line)</strong> consistently shifts the frontier toward the <b>upper-left</b>, achieving higher accuracy with fewer steps.</li>
+                        <li><span class="highlight-blue">Stability:</span> RCD enables stable generation at higher <i>Token per Step</i> regimes where the Sequential Denoising baseline fails to maintain coherence.</li>
+                        <li><span class="highlight-orange">4-5&times; Gain:</span> At equivalent accuracy levels, RCD requires up to 5&times; fewer steps on complex reasoning tasks.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+<!--    <section id="bibtex">-->
+<!--        <h2>BibTeX</h2>-->
+<!--        <pre><code>@article{rcd2025,-->
+<!--  title={Residual Context Diffusion: Unleashing the Potential of dLLMs},-->
+<!--  author={Your Name and others},-->
+<!--  journal={arXiv preprint},-->
+<!--  year={2025}-->
+<!--}</code></pre>-->
+<!--    </section>-->
+
+    <footer style="text-align: center; color: #9aa0a6; padding: 40px 0;">
+        &copy; 2026 Residual Context Diffusion Project
+    </footer>
+</div>
+
+</body>
+</html>
