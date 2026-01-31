@@ -12,6 +12,12 @@
             --bg-color: #ffffff;
             --sec-bg-color: #f8f9fa;
         }
+
+        /* Better mobile defaults */
+        * { box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; }
+        img, video { max-width: 100%; height: auto; display: block; }
+
         body {
             font-family: 'Google Sans', sans-serif;
             line-height: 1.6;
@@ -25,6 +31,7 @@
             margin: 0 auto;
             padding: 40px 20px;
         }
+
         /* Header */
         header {
             text-align: center;
@@ -42,16 +49,21 @@
         }
         .links {
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;         /* allow wrapping on mobile */
+            gap: 10px;
         }
         .links a {
             text-decoration: none;
             color: white;
             background: var(--primary-color);
-            padding: 10px 20px;
+            padding: 10px 16px;
             border-radius: 25px;
-            margin: 0 5px;
+            margin: 0;               /* handled by gap now */
             font-size: 0.9rem;
             transition: background 0.3s;
+            white-space: nowrap;     /* keep button text on one line */
         }
         .links a:hover {
             background: var(--accent-color);
@@ -74,6 +86,13 @@
             text-align: left;
         }
 
+        /* Make the first hero figure responsive (was fixed 50% inline) */
+        .hero-figure {
+            width: min(900px, 100%);
+            margin: 0 auto;
+            box-shadow: none;
+        }
+
         /* Sections */
         section {
             margin-bottom: 50px;
@@ -94,6 +113,7 @@
         /* Tables */
         .table-wrapper {
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
         table {
             width: 100%;
@@ -120,6 +140,7 @@
             border-radius: 8px;
             font-size: 0.85rem;
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .authors {
@@ -130,7 +151,7 @@
         }
 
         .authors a {
-            color: #1a73e8; /* 链接颜色 */
+            color: #1a73e8;
             text-decoration: none;
         }
 
@@ -139,8 +160,8 @@
         }
 
         .author-block {
-            display: inline-block; /* 保证在小屏幕上名字不会被切断 */
-            white-space: nowrap;
+            display: inline;          /* allow natural wrapping on small screens */
+            white-space: normal;      /* avoid forcing overflow */
         }
 
         .affiliations, .notes {
@@ -166,7 +187,6 @@
             width: 100%;
             max-width: 1100px;
             height: auto;
-            /* 去掉之前的 box-shadow，如果 pdf 转换后背景是透明的 */
             border-radius: 4px;
         }
 
@@ -207,16 +227,9 @@
         .badge-blue { background: #e6f7ff; color: #1890ff; }
         .badge-green { background: #f6ffed; color: #52c41a; }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .method-explanation-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
         .results-main-container {
             display: flex;
-            flex-direction: column; /* 默认纵向，对于这种宽图更好看 */
+            flex-direction: column;
             align-items: center;
             gap: 30px;
             margin: 40px 0;
@@ -224,7 +237,7 @@
 
         .responsive-img {
             width: 100%;
-            max-width: 1000px; /* 帕累托图通常较宽，给大一点的展示空间 */
+            max-width: 1000px;
             height: auto;
             border-radius: 8px;
         }
@@ -268,6 +281,27 @@
         .highlight-green { color: #2e7d32; font-weight: 600; }
         .highlight-blue { color: #1565c0; font-weight: 600; }
         .highlight-orange { color: #e65100; font-weight: 600; }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container { padding: 24px 16px; }
+            header { padding: 36px 0 18px 0; }
+
+            h1 { font-size: 1.75rem; line-height: 1.2; }
+            header h3 { font-size: 1.05rem; line-height: 1.35; margin: 8px 0 0; }
+
+            .authors { font-size: 1rem; }
+            .affiliations, .notes { font-size: 0.95rem; }
+
+            .caption { text-align: left; font-size: 0.9rem; }
+
+            .method-explanation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-analysis { padding: 18px; }
+            .key-takeaways li { font-size: 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -318,7 +352,7 @@
     </header>
 
     <section class="figure-container">
-        <img src="main_figure_1_0126.png" alt="RCD Framework" style="width: 50%; max-width: 900px; height: auto; border-radius: 8px; box-shadow: none;">
+        <img src="main_figure_1_0126.png" alt="RCD Framework" class="hero-figure">
         <p class="caption">
             <strong>Figure 1:</strong> Overview of the residual denoising mechanism in Residual Context Diffusion (RCD). Remasking happens during each denoising step, discarding low-confidence token even though they are already explicitly computed. To recycle computation from previous steps, our proposed method
   extracts information before it is discarded, and forwards it to the next denoising step.
@@ -429,16 +463,6 @@
         </section>
 
     </section>
-
-<!--    <section id="bibtex">-->
-<!--        <h2>BibTeX</h2>-->
-<!--        <pre><code>@article{rcd2025,-->
-<!--  title={Residual Context Diffusion: Unleashing the Potential of dLLMs},-->
-<!--  author={Your Name and others},-->
-<!--  journal={arXiv preprint},-->
-<!--  year={2025}-->
-<!--}</code></pre>-->
-<!--    </section>-->
 
     <footer style="text-align: center; color: #9aa0a6; padding: 40px 0;">
         &copy; 2026 Residual Context Diffusion Project
