@@ -86,11 +86,19 @@
             text-align: left;
         }
 
-        /* Make the first hero figure responsive (was fixed 50% inline) */
+        /* Figure 1: half width + no shadow */
         .hero-figure {
-            width: min(900px, 100%);
+            width: 50%;
+            max-width: 900px;
             margin: 0 auto;
-            box-shadow: none;
+
+            /* make sure there's truly no "frame" from CSS */
+            box-shadow: none !important;
+            border: 0;
+            outline: 0;
+
+            /* 如果你觉得“那圈边框”来自圆角抗锯齿，可以取消下面注释去掉圆角 */
+            /* border-radius: 0; */
         }
 
         /* Sections */
@@ -301,6 +309,9 @@
 
             .results-analysis { padding: 18px; }
             .key-takeaways li { font-size: 1rem; }
+
+            /* keep Figure 1 readable on phones */
+            .hero-figure { width: 100%; }
         }
     </style>
 </head>
