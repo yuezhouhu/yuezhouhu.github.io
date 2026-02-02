@@ -39,7 +39,7 @@ author_profile: true
 
 - **Residual Context Diffusion Language Models** [[arXiv]](https://arxiv.org/abs/2601.22954) [[Code]](https://github.com/yuezhouhu/residual-context-diffusion) [[Project page]](https://yuezhouhu.github.io/projects/residual-context-diffusion/) [[Models]](https://huggingface.co/collections/yuezhouhu/residual-context-diffusion)
 
-  **Yuezhou Hu**\*, **Harman Singh**\*, **Monishwaran Maheswaran**\*, Haocheng Xi, Coleman Hooper, Jintao Zhang, Aditya Tomar, Michael W. Mahoney, Sewon Min, Mehrdad Farajtabar, Kurt Keutzer, Amir Gholami$\dagger$, Chenfeng Xu$\dagger$
+  **Yuezhou Hu**\*, Harman Singh\*, Monishwaran Maheswaran\*, Haocheng Xi, Coleman Hooper, Jintao Zhang, Aditya Tomar, Michael W. Mahoney, Sewon Min, Mehrdad Farajtabar, Kurt Keutzer, Amir Gholami$\dagger$, Chenfeng Xu$\dagger$
 
 - **Arbitrage: Efficient Reasoning via Advantage-Aware Speculation** [[arXiv]](https://arxiv.org/abs/2512.05033) [[Project page]](https://github.com/SqueezeAILab/Arbitrage)
 
