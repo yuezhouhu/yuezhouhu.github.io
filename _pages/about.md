@@ -22,6 +22,4 @@ am intested in:
 
 # Contact
 
-I receive too many emails, and I often dropout with p=0.5. Sending your email to all these addresses: yuezhouhu@berkeley.edu, yuezhouhu@outlook.com, and yuezhouhu.cs@gmail.com, especially if you are interested in my research.
-
-Alternatively, feel free to ask me any questions at my [Askbox](https://box.n3ko.cc/_/2by4). This is an anonymous question and answer box that I will check often.
+Feel free to contact me via email or ask me any questions at my [Askbox](https://box.n3ko.cc/_/2by4).
