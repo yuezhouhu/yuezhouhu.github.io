@@ -13,8 +13,7 @@ Prof. Jun Zhu in TSAIL, and Prof. Tuo Zhao in Georgia Tech.
 
 # Research Interests
 
-My research interests include **efficient machine learning**, particularly efficient training and inference. I
-am intested in:
+My research interests include **efficient machine learning**, particularly efficient training and inference. A list of my interests and some related projects:
 - Diffusion Language Model [[RCD]](https://arxiv.org/abs/2601.22954) 
 - Speculative Decoding [[AdaSpec]](https://arxiv.org/abs/2510.19779) [[Arbitrage]](https://arxiv.org/abs/2512.05033)
 - Large Reasoning Model [[Arbitrage]](https://arxiv.org/abs/2512.05033)
