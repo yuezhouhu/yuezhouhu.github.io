@@ -16,7 +16,6 @@ completed my undergrad in Tsinghua University. During this time, I was fortunate
 My research interests spans a couple of topics in **efficient machine learning**, particularly efficient training and inference. A list of my interests and some related projects:
 - Diffusion Language Model [[RCD]](https://arxiv.org/abs/2601.22954) 
 - Speculative Decoding [[AdaSpec]](https://arxiv.org/abs/2510.19779) [[Arbitrage]](https://arxiv.org/abs/2512.05033)
-- Large Reasoning Model [[Arbitrage]](https://arxiv.org/abs/2512.05033)
 - Dynamic Sparse Training [[2:4]](https://arxiv.org/abs/2404.01847) [[S-STE]](https://arxiv.org/abs/2409.09099)
 
 # Contact
