@@ -15,10 +15,10 @@ Prof. Jun Zhu in TSAIL, and Prof. Tuo Zhao in Georgia Tech.
 
 My research interests include **efficient machine learning**, particularly efficient training and inference. I
 am intested in:
-- Diffusion Language Model
-- Speculative Decoding
-- Large Reasoning Model
-- Dynamic Sparse Training
+- Diffusion Language Model [[RCD]](https://arxiv.org/abs/2601.22954) 
+- Speculative Decoding [[AdaSpec]](https://arxiv.org/abs/2510.19779) [[Arbitrage]](https://arxiv.org/abs/2512.05033)
+- Large Reasoning Model [[Arbitrage]](https://arxiv.org/abs/2512.05033)
+- Dynamic Sparse Training [[2:4]](https://arxiv.org/abs/2404.01847) [[S-STE]](https://arxiv.org/abs/2409.09099)
 
 # Contact
 
