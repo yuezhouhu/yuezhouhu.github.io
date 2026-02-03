@@ -7,13 +7,13 @@ redirect_from:
   - /about.html
 ---
 
-I am a PhD student at Berkeley Artificial Intelligence Research Lab (BAIR), advised by Prof. Kurt Keutzer. Previously, I
-completed my undergrad in Tsinghua University. During this time, I was fortunate to be advised by Prof. Jianfei Chen and
-Prof. Jun Zhu in TSAIL, and Prof. Tuo Zhao in Georgia Tech.
+I am a PhD student at Berkeley Artificial Intelligence Research Lab (BAIR), advised by [Prof. Kurt Keutzer](https://keutzer.github.io). Previously, I
+completed my undergrad in Tsinghua University. During this time, I was fortunate to be advised by [Prof. Jianfei Chen](https://ml.cs.tsinghua.edu.cn/~jianfei/) and
+[Prof. Jun Zhu](http://ml.cs.tsinghua.edu.cn/~jun) in TSAIL, and [Prof. Tuo Zhao](https://www2.isye.gatech.edu/~tzhao80/) in Georgia Tech.
 
 # Research Interests
 
-My research interests include **efficient machine learning**, particularly efficient training and inference. A list of my interests and some related projects:
+My research interests spans a couple of topics in **efficient machine learning**, particularly efficient training and inference. A list of my interests and some related projects:
 - Diffusion Language Model [[RCD]](https://arxiv.org/abs/2601.22954) 
 - Speculative Decoding [[AdaSpec]](https://arxiv.org/abs/2510.19779) [[Arbitrage]](https://arxiv.org/abs/2512.05033)
 - Large Reasoning Model [[Arbitrage]](https://arxiv.org/abs/2512.05033)
