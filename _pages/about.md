@@ -19,7 +19,6 @@ am intested in:
 - Speculative Decoding
 - Large Reasoning Model
 - Dynamic Sparse Training
-I want to break the monopoly of unicorns in AI and make deep learning affordable and accessible for every researcher.
 
 # Contact
 
