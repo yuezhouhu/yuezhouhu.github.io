@@ -24,7 +24,7 @@ My research interests spans a couple of topics in **efficient machine learning**
 
   **Yuezhou Hu**\*, Harman Singh\*, Monishwaran Maheswaran\*, Haocheng Xi, Coleman Hooper, Jintao Zhang, Aditya Tomar, Michael W. Mahoney, Sewon Min, Mehrdad Farajtabar, Kurt Keutzer, Amir Gholami, Chenfeng Xu
   
-  Preprint
+  International Conference on Machine Learning (ICML), 2026
 
 - **Arbitrage: Efficient Reasoning via Advantage-Aware Speculation** [[arXiv]](https://arxiv.org/abs/2512.05033) [[Project page]](https://github.com/SqueezeAILab/Arbitrage)
 
