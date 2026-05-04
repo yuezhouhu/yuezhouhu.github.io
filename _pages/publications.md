@@ -54,7 +54,3 @@ author_profile: true
 - **CAST: Continuous and Differentiable Semi-Structured Sparsity-Aware Training for Large Language Models**  [[arXiv]](https://arxiv.org/abs/2509.25996)
 
   Weiyu Huang, **Yuezhou Hu**, Jun Zhu, Jianfei Chen
-
-- **Identifying Sensitive Weights via Post-quantization Integral** [[arXiv]](https://arxiv.org/abs/2503.01901)
-
-  **Yuezhou Hu**, Weiyu Huang, Zichen Liang, Chang Chen, Jintao Zhang, Jun Zhu, Jianfei Chen
