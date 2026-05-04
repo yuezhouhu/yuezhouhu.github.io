@@ -11,6 +11,12 @@ author_profile: true
 
   International Conference on Machine Learning (ICML), 2026
 
+- **LoSA: Locality Aware Sparse Attention for Block-Wise Diffusion Language Models** [[arXiv]](https://arxiv.org/abs/2604.12056)
+
+  Haocheng Xi, Harman Singh, **Yuezhou Hu**, Coleman Hooper, Rishabh Tiwari, Aditya Tomar, Minjae Lee, Wonjun Kang, Michael Mahoney, Chenfeng Xu, Kurt Keutzer, Amir Gholami
+
+  International Conference on Machine Learning (ICML), 2026
+
 - **ParallelBench: Understanding the Trade-offs of Parallel Decoding in Diffusion LLMs** [[arXiv]](https://arxiv.org/abs/2510.04767) 
 
   Wonjun Kang, Kevin Galim, Seunghyuk Oh, Minjae Lee, Yuchen Zeng, Shuibai Zhang, Coleman Hooper, **Yuezhou Hu**, Hyung Il Koo, Nam Ik Cho, Kangwook Lee
