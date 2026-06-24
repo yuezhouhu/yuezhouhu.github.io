@@ -353,12 +353,17 @@
         </div>
 
         <div class="notes">
-            <p><sup>*</sup>Equal contribution &nbsp;&nbsp; <sup>†</sup>Joint advisement / Corresponding author</p>
+            <p><sup>*</sup>Equal contribution &nbsp;&nbsp; <sup>†</sup>Equal advising / Corresponding author</p>
+        </div>
+
+        <div class="notes">
+            <p><strong>ICML 2026</strong></p>
         </div>
         <div class="links">
             <a href="https://huggingface.co/collections/yuezhouhu/residual-context-diffusion">Models</a>
             <a href="https://github.com/yuezhouhu/residual-context-diffusion">Code</a>
             <a href="https://arxiv.org/abs/2601.22954">arXiv</a>
+            <a href="https://openreview.net/forum?id=fQYwAlpK3V">OpenReview</a>
         </div>
     </header>
 
@@ -388,8 +393,8 @@
             This is due to the "remasking" strategy which wastes intermediate computation on tokens that remain undecoded.
             We propose <strong>Residual Context Diffusion (RCD)</strong>, a novel paradigm that transforms this wasted computation into
             a guiding signal. By treating latent representations of low-confidence tokens as residual updates, RCD allows models to
-            progressively refine their knowledge. Our method achieves 5-10% gains on GSM8K/MATH500 and <strong>doubles accuracy</strong>
-            on competition-level AIME benchmarks while requiring up to 5x fewer steps.
+            progressively refine their knowledge. Our method achieves 4&ndash;11 percentage point gains on GSM8K/MATH500 and <strong>doubles accuracy</strong>
+            on competition-level AIME benchmarks while requiring up to 4&ndash;5&times; fewer steps at the baseline's peak accuracy.
         </p>
     </section>
 
@@ -464,7 +469,69 @@
     <section id="results">
         <h2>Experimental Results</h2>
 
+        <section id="main-results">
+            <h3>Main Results</h3>
+            <p class="figure-description">
+                <strong>RCD consistently beats Sequential Denoising (SeqD)</strong> across every model / block-size setting,
+                with the largest gains on competition-level <strong>AIME24/25</strong>, where accuracy often <strong>more than doubles</strong>.
+                Confidence threshold 0.85; SeqD/RCD use a 16,384 sequence length, Chat uses 512 tokens (1,024 for AIME).
+            </p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model</th><th>Variant</th>
+                            <th>GSM8K<sup>&dagger;</sup></th><th>MATH500</th><th>AIME24</th><th>AIME25</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td rowspan="3">SDAR-4B-b32</td><td>Chat<sup>&Dagger;</sup></td><td><strong>86.13</strong></td><td>50.20</td><td>5.83</td><td>2.50</td></tr>
+                        <tr><td>SeqD</td><td>81.73</td><td>61.20</td><td>6.04</td><td>11.88</td></tr>
+                        <tr class="rcd-row"><td>RCD</td><td>84.91</td><td><strong>65.40</strong></td><td><strong>9.17</strong></td><td><strong>17.08</strong></td></tr>
+
+                        <tr><td rowspan="3">SDAR-4B-b64</td><td>Chat<sup>&Dagger;</sup></td><td>85.90</td><td>49.80</td><td>6.25</td><td>1.67</td></tr>
+                        <tr><td>SeqD</td><td>78.85</td><td>56.80</td><td>4.17</td><td>7.29</td></tr>
+                        <tr class="rcd-row"><td>RCD</td><td><strong>87.04</strong></td><td><strong>68.40</strong></td><td><strong>11.04</strong></td><td><strong>14.79</strong></td></tr>
+
+                        <tr><td rowspan="3">SDAR-8B-b32</td><td>Chat<sup>&Dagger;</sup></td><td>88.40</td><td>50.00</td><td>6.46</td><td>4.17</td></tr>
+                        <tr><td>SeqD</td><td>86.50</td><td>65.80</td><td>11.67</td><td>14.79</td></tr>
+                        <tr class="rcd-row"><td>RCD</td><td><strong>90.45</strong></td><td><strong>76.20</strong></td><td><strong>18.96</strong></td><td><strong>20.00</strong></td></tr>
+
+                        <tr><td rowspan="3">SDAR-8B-b64</td><td>Chat<sup>&Dagger;</sup></td><td><strong>88.32</strong></td><td>51.60</td><td>5.20</td><td>2.50</td></tr>
+                        <tr><td>SeqD</td><td>82.87</td><td>64.20</td><td>7.08</td><td>9.79</td></tr>
+                        <tr class="rcd-row"><td>RCD</td><td>86.05</td><td><strong>74.40</strong></td><td><strong>18.75</strong></td><td><strong>16.04</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="caption">
+                <sup>&dagger;</sup> Potential data contamination was observed in the original Chat models on GSM8K, which may inflate the Chat baseline.
+                <sup>&Dagger;</sup> Chat variants are instruction-following models; SeqD/RCD are further adapted for mathematical reasoning.
+            </p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>Model</th><th>Variant</th><th>GSM8K</th><th>MinervaMath</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td rowspan="3">LLaDA</td><td>Base</td><td>70.30</td><td>31.40</td></tr>
+                        <tr><td>SeqD</td><td>75.74</td><td>31.10</td></tr>
+                        <tr class="rcd-row"><td>RCD</td><td><strong>78.09</strong></td><td><strong>37.00</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="caption">LLaDA (global-attention dLLM): sequence length 512, single-token-per-step decoding.</p>
+
+            <ul class="key-takeaways">
+                <li><span class="highlight-green">Doubles hard-task accuracy:</span> on SDAR-8B-b64 AIME24, RCD lifts accuracy from <strong>7.08 &rarr; 18.75</strong>.</li>
+                <li><span class="highlight-blue">Scales with size &amp; block:</span> gains of <strong>4&ndash;11 percentage points</strong> when scaling from 4B to 8B, widening as block size grows.</li>
+                <li><span class="highlight-orange">Generalizes across architectures:</span> on global-attention LLaDA, RCD adds a <strong>~6 point</strong> absolute gain on MinervaMath.</li>
+            </ul>
+        </section>
+
         <section id="efficiency-results">
+            <h3>Efficiency: Accuracy vs. Parallelism</h3>
             <div class="results-main-container">
                 <div class="pareto-chart">
                     <img src="sdar_accuracy_vs_tokens_per_step_academic.png" alt="Pareto Frontier: Accuracy vs Tokens per Step" class="responsive-img">
@@ -478,7 +545,7 @@
                     <ul class="key-takeaways">
                         <li><span class="highlight-green">Significant Speedup:</span> <strong>RCD (green dashed line)</strong> consistently shifts the frontier toward the <b>upper-left</b>, achieving higher accuracy with fewer steps.</li>
                         <li><span class="highlight-blue">Stability:</span> RCD enables stable generation at higher <i>Token per Step</i> regimes where the Sequential Denoising baseline fails to maintain coherence.</li>
-                        <li><span class="highlight-orange">4-5&times; Gain:</span> At equivalent accuracy levels, RCD requires up to 5&times; fewer steps on complex reasoning tasks.</li>
+                        <li><span class="highlight-orange">4-5&times; Gain:</span> At the baseline's peak accuracy, RCD requires up to 4&ndash;5&times; fewer steps on complex reasoning tasks.</li>
                     </ul>
                 </div>
             </div>
