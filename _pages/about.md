@@ -36,7 +36,7 @@ My research interests spans a couple of topics in **efficient machine learning**
 
   **Yuezhou Hu**\*, Jiaxin Guo\*, Xinyu Feng, Tuo Zhao
 
-  Neural Information Processing Systems (NeurIPS), 2025 (**Spotlight**)
+  Neural Information Processing Systems (NeurIPS), 2025 (**Spotlight**, top 3.2%)
 
 - **S-STE: Continuous Pruning Function for Efficient 2:4 Sparse Pre-training** [[arXiv]](https://arxiv.org/abs/2409.09099) [[OpenReview]](https://openreview.net/forum?id=8abNCVJs2j) [[Project page]](https://github.com/huyz2023/2by4-pretrain)
 

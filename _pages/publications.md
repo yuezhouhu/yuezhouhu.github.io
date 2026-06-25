@@ -27,7 +27,7 @@ author_profile: true
 
   **Yuezhou Hu**\*, Jiaxin Guo\*, Xinyu Feng, Tuo Zhao
 
-  Neural Information Processing Systems (NeurIPS), 2025 (**Spotlight**)
+  Neural Information Processing Systems (NeurIPS), 2025 (**Spotlight**, top 3.2%)
 
 - **Pruning Large Language Models with Semi-Structural Adaptive Sparse Training** [[arXiv]](https://arxiv.org/abs/2407.20584) [[Project page]](https://github.com/thu-ml/adaptive-sparse-trainer)
 
