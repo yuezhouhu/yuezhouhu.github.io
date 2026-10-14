@@ -1,0 +1,62 @@
+---
+layout: compress
+---
+
+{% comment %}
+  Project page: the default layout without the masthead, and a centered page without the sidebar.
+  Front matter: title, subtitle, authors, affiliations, notes, venue (HTML allowed), links (label, url), footer.
+  The content uses the components of the theme: notices, figures, tables, buttons, code and MathJax.
+{% endcomment %}
+
+{% include base_path %}
+
+<!doctype html>
+<html lang="{{ site.locale | slice: 0,2 }}" class="no-js">
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
+  </head>
+
+  <body class="layout--project">
+
+    {% include browser-upgrade.html %}
+
+    <div id="main" role="main">
+      <article class="page project-page" itemscope itemtype="http://schema.org/CreativeWork">
+        {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+        {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+
+        <div class="page__inner-wrap">
+          <header class="project-page__header">
+            <h1 class="page__title" itemprop="headline">{{ page.title }}</h1>
+            {% if page.subtitle %}<p class="page__lead">{{ page.subtitle }}</p>{% endif %}
+            {% if page.authors %}<p class="project-page__authors">{{ page.authors }}</p>{% endif %}
+            {% if page.affiliations %}<p class="project-page__affiliations">{{ page.affiliations }}</p>{% endif %}
+            {% if page.notes %}<p class="project-page__notes">{{ page.notes }}</p>{% endif %}
+            {% if page.venue %}<p class="project-page__venue">{{ page.venue }}</p>{% endif %}
+            {% if page.links %}
+              <p class="project-page__links">
+                {% for link in page.links %}<a href="{{ link.url }}" class="btn btn--info">{{ link.label }}</a> {% endfor %}
+              </p>
+            {% endif %}
+          </header>
+
+          <section class="page__content" itemprop="text">
+            {{ content }}
+          </section>
+        </div>
+      </article>
+    </div>
+
+    {% if page.footer %}
+      <div class="page__footer">
+        <footer>
+          <div class="page__footer-copyright">{{ page.footer }}</div>
+        </footer>
+      </div>
+    {% endif %}
+
+    {% include scripts.html %}
+
+  </body>
+</html>
