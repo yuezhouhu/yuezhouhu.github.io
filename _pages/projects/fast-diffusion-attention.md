@@ -1,6 +1,7 @@
 ---
 layout: project
 title: "Fast Diffusion Attention"
+permalink: /projects/fast-diffusion-attention/
 subtitle: "Block diffusion training at FlashAttention speed"
 excerpt: "Block diffusion training at FlashAttention speed: attention kernels with the block diffusion mask built into FlashAttention-3 on Hopper and FlashAttention-2 on Ampere and Ada."
 authors: '<a href="https://yuezhouhu.github.io">Yuezhou Hu</a>, <a href="https://keutzer.github.io/">Kurt Keutzer</a>, <a href="https://www.chenfengx.com">Chenfeng Xu</a>'
@@ -35,7 +36,7 @@ follows the same structure. BD3-LM computes the loss of all the blocks "in one f
 x_noisy ⊕ x" of the noisy and the clean sequence ([paper](https://arxiv.org/abs/2503.09573)), so that each noisy block
 can be denoised from the clean blocks before it. The attention mask that makes this work:
 
-[![The block diffusion attention mask](pattern.png)](pattern.png)
+[![The block diffusion attention mask](/images/projects/fast-diffusion-attention/pattern.png)](/images/projects/fast-diffusion-attention/pattern.png)
 
 A noisy block sees itself, bidirectionally, and all the previous clean blocks: the context it is denoised from. A clean
 block sees itself and the previous clean blocks: block-causal attention, which computes the keys and values that the
@@ -58,7 +59,7 @@ How fast can attention with this mask possibly be? Rearrange the visible blocks 
 matrix becomes a block-causal staircase: row `i` of the noisy half sees the `i - 1` clean blocks before it and its own
 noisy block, `i` blocks in total, exactly like row `i` of a causal mask over blocks.
 
-[![Each half of the diffusion mask has the visible pairs of causal attention on n tokens](equal_work.png)](equal_work.png)
+[![Each half of the diffusion mask has the visible pairs of causal attention on n tokens](/images/projects/fast-diffusion-attention/equal_work.png)](/images/projects/fast-diffusion-attention/equal_work.png)
 
 So `B` diffusion samples of length `2n` contain the visible (query, key) pairs of causal attention on `2B` sequences of
 length `n`, with the same tile structure. Up to the diagonal blocks, which are full squares instead of triangles,
@@ -85,7 +86,7 @@ separately, so that a tile never straddles the noisy and the clean half:
 Tiles inside the visible region run without any masking; only the tiles that cross a block boundary, at most a few per
 query tile, apply the mask element by element. Invisible tiles are never loaded.
 
-[![Tiles computed by the kernels](tiles.png)](tiles.png)
+[![Tiles computed by the kernels](/images/projects/fast-diffusion-attention/tiles.png)](/images/projects/fast-diffusion-attention/tiles.png)
 
 All the geometry lives in one header, [`diffusion.h`](https://github.com/yuezhouhu/fast-diffusion-attention/blob/main/csrc/fda/diffusion.h): the offsets of the halves (for batched
 and varlen inputs), the visible key and query intervals, the tile enumerations of the forward and backward passes, and
@@ -156,17 +157,17 @@ also runs for about 300 ms after a warm-up of the same length, so that the clock
 On H800, with BF16 and head dimension 128, the forward pass reaches 0.89-0.98x the throughput of FlashAttention-3, the
 backward pass, 75-80% of the attention time of a training step, 0.96-1.14x, and a training step 0.96-1.10x:
 
-[![Forward, backward and training-step TFLOPS on H800](perf_h800_bf16.png)](perf_h800_bf16.png)
+[![Forward, backward and training-step TFLOPS on H800](/images/projects/fast-diffusion-attention/perf_h800_bf16.png)](/images/projects/fast-diffusion-attention/perf_h800_bf16.png)
 
 The FP8 forward pass runs at 0.89-0.97x FlashAttention-3 (up to 551 TFLOPS), varlen batches of samples of random
 lengths at 0.95-1.15x for a training step, and head dimensions 64 and 256 at 0.94-1.05x:
 
-[![TFLOPS on H800 for FP8, varlen batches and head dimensions 64 and 256](perf_h800_more.png)](perf_h800_more.png)
+[![TFLOPS on H800 for FP8, varlen batches and head dimensions 64 and 256](/images/projects/fast-diffusion-attention/perf_h800_more.png)](/images/projects/fast-diffusion-attention/perf_h800_more.png)
 
 On Ampere and Ada, against FlashAttention-2 on its benchmark shapes, a training step runs at 0.94-1.00x on A800,
 0.96-1.30x on RTX A6000 and 1.03-1.10x on L40S (geometric means per head dimension):
 
-[![Training-step throughput relative to FlashAttention-2 on A800, RTX A6000 and L40S](perf_ampere_ada.png)](perf_ampere_ada.png)
+[![Training-step throughput relative to FlashAttention-2 on A800, RTX A6000 and L40S](/images/projects/fast-diffusion-attention/perf_ampere_ada.png)](/images/projects/fast-diffusion-attention/perf_ampere_ada.png)
 
 Every measurement, with times, block sizes up to 1024, dropout and the deterministic mode, is in the performance pages
 of [`main`](https://github.com/yuezhouhu/fast-diffusion-attention/blob/main/docs/performance.md) and [`fa2`](https://github.com/yuezhouhu/fast-diffusion-attention/blob/fa2/docs/performance.md).

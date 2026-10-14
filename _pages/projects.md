@@ -4,7 +4,7 @@ title: "Projects"
 permalink: /projects/
 author_profile: true
 feature_row:
-  - image_path: projects/fast-diffusion-attention.png
+  - image_path: projects/fast-diffusion-attention/thumbnail.png
     alt: "The block diffusion attention mask"
     title: "Fast Diffusion Attention"
     excerpt: |
@@ -18,7 +18,7 @@ feature_row:
     url: "/projects/fast-diffusion-attention/"
     btn_label: "Project page"
     btn_class: "btn--info"
-  - image_path: projects/residual-context-diffusion.png
+  - image_path: projects/residual-context-diffusion/thumbnail.png
     alt: "Residual denoising in Residual Context Diffusion"
     title: "Residual Context Diffusion"
     excerpt: |
