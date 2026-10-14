@@ -1,0 +1,56 @@
+/* ==========================================================================
+   PROJECT LIST (_pages/projects.md)
+   ========================================================================== */
+
+.project-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5em;
+  padding: 1.5em 0;
+  border-bottom: 1px solid $border-color;
+}
+
+.project-card__image {
+  flex: 0 0 36%;
+
+  img {
+    display: block;
+    width: 100%;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+  }
+}
+
+.project-card__body {
+  flex: 1;
+  min-width: 0;
+
+  p {
+    margin: 0.5em 0 0;
+  }
+}
+
+.project-card__title {
+  margin: 0;
+  font-size: $type-size-4;
+}
+
+.project-card__subtitle {
+  font-style: italic;
+}
+
+.project-card__meta {
+  color: $gray;
+}
+
+@media (max-width: 600px) {
+  .project-card {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .project-card__image {
+    flex: none;
+    width: 100%;
+  }
+}
