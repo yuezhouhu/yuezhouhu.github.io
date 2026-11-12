@@ -52,6 +52,6 @@ My research interests spans a couple of topics in **efficient machine learning**
 
 # Contact
 
-Feel free to contact me via email or ask me any questions at my [Askbox](https://box.n3ko.cc/_/2by4).
-
 Since many people have asked me how to write an SOP during application season, I am now open-sourcing the [statement of purpose](/files/sop.pdf) from my PhD application for everyone to read and discuss.
+
+Feel free to contact me via email or ask me any questions at my [Askbox](https://box.n3ko.cc/_/2by4).
