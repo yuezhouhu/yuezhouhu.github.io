@@ -11,6 +11,8 @@ I am a PhD student at Berkeley Artificial Intelligence Research Lab (BAIR), advi
 completed my undergrad in Tsinghua University. During this time, I was fortunate to be advised by [Prof. Jianfei Chen](https://ml.cs.tsinghua.edu.cn/~jianfei/) and
 [Prof. Jun Zhu](http://ml.cs.tsinghua.edu.cn/~jun) in TSAIL, and [Prof. Tuo Zhao](https://www2.isye.gatech.edu/~tzhao80/) in Georgia Tech.
 
+Since many people have asked me how to write an SOP during application season, I am now open-sourcing the [statement of purpose](/files/sop.pdf) from my PhD application for everyone to read and discuss.
+
 # Research Interests
 
 My research interests spans a couple of topics in **efficient machine learning**, particularly efficient training and inference. A list of my interests and some related projects:
